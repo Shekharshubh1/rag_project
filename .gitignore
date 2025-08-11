@@ -1,1 +1,21 @@
-.env.example
+.env
+# Ignore all .env files except the example
+!.env.example
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# VS Code settings
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Python virtual environments environments
+
+
+.envrcvenv/venv/
+.envrc
