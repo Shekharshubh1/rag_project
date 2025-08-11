@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI, UploadFile
 from utils.query import query_rag
 from utils.ingest import ingest_pdf
@@ -6,7 +7,9 @@ app = FastAPI()
 
 @app.post("/upload")
 async def upload(file: UploadFile):
-    file_path = f"data/{file.filename}"
+    tmp_dir = "/tmp/data"
+    os.makedirs(tmp_dir, exist_ok=True)
+    file_path = os.path.join(tmp_dir, file.filename)
     with open(file_path, "wb") as f:
         f.write(await file.read())
     ingest_pdf(file_path)

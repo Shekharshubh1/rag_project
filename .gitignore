@@ -17,3 +17,6 @@ Thumbs.db
 # Python virtual environments
 venv/
 .envrc
+
+# Data files
+data/
